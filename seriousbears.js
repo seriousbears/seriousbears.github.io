@@ -18,8 +18,8 @@ document.getElementById("osoContainer").style.display = oso;
 function toggleChat(){
     
     // If your window is too small to use the Chatroom in the same page.. open in new window
-    if ($(window).width() < 560) {
-    window.open("http://www.twitch.tv/seriousbears/chat");
+    if ($(window).width() < 500) {
+    window.open("http://chat.seriousbears.net/");
     }
     else {
 
