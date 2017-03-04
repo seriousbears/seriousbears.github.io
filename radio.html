@@ -49,6 +49,7 @@ function getRandomColor() {
 
 // arm the bearhorn...
 function blowHorn(randomColor) {
+
     if (!throttleHornInputs) {
 
         var whichHorn = Math.floor(Math.random() * 4);
@@ -93,7 +94,9 @@ function blowHorn(randomColor) {
             $("#william").css("-webkit-filter", "brightness(100%)");
             $("#william").css("filter", "brightness(100%)");
         }, 800);
-
+        
+        // INCREASE HYPE
+        $("#hornCount").text(parseInt($("#hornCount").text()) + 1);
     }
 }
 
@@ -113,6 +116,8 @@ function getTrackID() {
     </audio>
     <!-- TRACK ID -->
     <div id="idContainer"><b>NP: </b><span id="nowplaying">RETRIEVING TRACK ID...</span></div>
+    <!-- BEARHORN COUNTER -->
+    <div id="countContainer"><b>🐻: </b><span id="hornCount">0</span></div>
     <!-- CENTER CONTAINER -->
     <div class="centerContainer">
         <!-- WILLIAM -->
