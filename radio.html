@@ -111,10 +111,6 @@ function getTrackID() {
 </script>
 
 <body onclick="blowHorn(getRandomColor())" onload="getTrackID()">
-    <!-- BEARSTREAM -->
-    <audio id="bearstream" preload="none" controls>
-        <source src="http://listen.seriousbears.net/" type="audio/mpeg">
-    </audio>
     <!-- TRACK ID -->
     <div id="idContainer"><b>NP: </b><span id="nowplaying">RETRIEVING TRACK ID...</span></div>
     <!-- BEARHORN COUNTER -->
@@ -126,6 +122,10 @@ function getTrackID() {
     </div>
     <!-- GIPHY -->
     <iframe id="giphy" src="http://tv.giphy.com/bear" frameborder="0" scrolling="no"></iframe>
+    <!-- BEARSTREAM -->
+    <audio id="bearstream" preload="none" controls>
+        <source src="http://listen.seriousbears.net/" type="audio/mpeg">
+    </audio>
 </body>
 <script>
 // POLL THE STREAM API FOR NEW TRACKID EVERY 45 SECONDS..

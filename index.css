@@ -34,12 +34,9 @@ color: white;
 }
 
 .footer {
-  position: absolute;
+  position: static;
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
-  height: 60px;
   color: white;
-
-  padding-top: 20px;
 }
