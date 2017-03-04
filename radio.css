@@ -18,7 +18,6 @@ body {
 
 #william {
 	height: 90%;
-
 }
 
 #idContainer {
@@ -44,6 +43,8 @@ body {
 /* CLASSES */
 
 .centerContainer {
+    z-index: 90;
+    background-color: transparent;
 	height: 100%;
 	width: 100%;
 	position: absolute;
