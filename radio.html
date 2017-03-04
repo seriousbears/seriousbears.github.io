@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
-    
 <title>OSO PLAYER ALPHA</title>
-
 <!-- INCLUDES -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,27 +9,26 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.2/howler.core.min.js"></script>
 <link rel="stylesheet" href="/radio.css">
-
 <script>
 // load the bearhorns
 var bearhorn1 = new Howl({
-  src: ['/bearhorn1.mp3'],
-  preload: true
+    src: ['/bearhorn1.mp3'],
+    preload: true
 });
-    
+
 var bearhorn2 = new Howl({
-  src: ['/bearhorn2.mp3'],
-  preload: true
+    src: ['/bearhorn2.mp3'],
+    preload: true
 });
-    
+
 var bearhorn3 = new Howl({
-  src: ['/bearhorn3.mp3'],
-  preload: true
+    src: ['/bearhorn3.mp3'],
+    preload: true
 });
-    
+
 var bearhorn4 = new Howl({
-  src: ['/bearhorn4.mp3'],
-  preload: true
+    src: ['/bearhorn4.mp3'],
+    preload: true
 });
 
 // parse to an array
@@ -44,70 +41,92 @@ var throttleHornInputs = false;
 function getRandomColor() {
     var letters = '0123456789ABCDEF';
     var color = '#';
-    for (var i = 0; i < 6; i++ ) {
+    for (var i = 0; i < 6; i++) {
         color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
 }
-	
+
 // arm the bearhorn...
-function blowHorn(randomColor){
-	if(!throttleHornInputs){
-		var whichHorn = Math.floor(Math.random() * 4);
-		var thisHorn = bearhorns[whichHorn];
-		thisHorn.play();
-		document.getElementById('william').classList.add("animate");
-		$(".centerContainer").css("background-color", randomColor);
-		$("#william").css("-webkit-filter", "brightness(200%)");
-		$("#william").css("filter", "brightness(200%)");
-		throttleHornInputs = true;
-		setTimeout(function(){
-			document.getElementById('william').classList.remove("animate");
-			throttleHornInputs = false;
-			$(".centerContainer").css("background-color", "transparent");
-			$("#william").css("-webkit-filter", "brightness(100%)");
-			$("#william").css("filter", "brightness(100%)");
-		}, 800);
-	}
+function blowHorn(randomColor) {
+    if (!throttleHornInputs) {
+
+        var whichHorn = Math.floor(Math.random() * 4);
+        var thisHorn = bearhorns[whichHorn];
+        thisHorn.play();
+
+        // WILLIAM BECOMES ENRAGED
+        $("#william").css("-webkit-filter", "brightness(200%)");
+        $("#william").css("filter", "brightness(200%)");
+
+        /// SLOW YO ROLL
+        throttleHornInputs = true;
+
+        // BEGIN THE ANIMATION
+        document.getElementById('william').classList.add("animate");
+        
+        // START BLINKING THE BACKGROUND
+        var backgroundBlink = setInterval(function() {
+            var currentBGcolor = $(".centerContainer").css("background-color");
+
+            if (currentBGcolor === "rgba(0, 0, 0, 0)") {
+                $(".centerContainer").css("background-color", randomColor);
+            } else {
+                $(".centerContainer").css("background-color", "transparent");
+            }
+        }, 69);
+        
+        // CONTINUE ALL THE ABOVE STATES FOR 800 MS
+        setTimeout(function() {
+
+            // SIGNAL THE STOP
+            throttleHornInputs = false;
+
+            // STOP THE ANIMATION
+            document.getElementById('william').classList.remove("animate");
+            
+            // STOP THE BLINKING
+            clearInterval(backgroundBlink);
+
+            // STOP THE OTHER STUFF
+            $(".centerContainer").css("background-color", "transparent");
+            $("#william").css("-webkit-filter", "brightness(100%)");
+            $("#william").css("filter", "brightness(100%)");
+        }, 800);
+
+    }
 }
 
 // get the track ID
-function getTrackID(){
+function getTrackID() {
     $.getJSON('http://listen.seriousbears.net/stats', function(data) {
         console.log(data.icestats.source[0].title);
         $("#nowplaying").replaceWith(data.icestats.source[0].title);
     });
 }
-
 </script>
-    
+
 <body onclick="blowHorn(getRandomColor())" onload="getTrackID()">
-    
     <!-- BEARSTREAM -->
     <audio id="bearstream" preload="none" controls>
-        <source src="http://listen.seriousbears.net/" type="audio/mpeg"> 
+        <source src="http://listen.seriousbears.net/" type="audio/mpeg">
     </audio>
-    
     <!-- TRACK ID -->
     <div id="idContainer"><b>NP: </b><span id="nowplaying">RETRIEVING TRACK ID...</span></div>
-
     <!-- CENTER CONTAINER -->
-    <div class="centerContainer">  
-     <!-- WILLIAM -->
-    <img id="william" src="bear2.png" alt="WILLIAM">
+    <div class="centerContainer">
+        <!-- WILLIAM -->
+        <img id="william" src="bear2.png" alt="WILLIAM">
     </div>
-    
     <!-- GIPHY -->
     <iframe id="giphy" src="http://tv.giphy.com/bear" frameborder="0" scrolling="no"></iframe>
-    
 </body>
-
 <script>
-    // POLL THE STREAM API FOR NEW TRACKID EVERY 45 SECONDS..
-    window.setInterval(function(){
+// POLL THE STREAM API FOR NEW TRACKID EVERY 45 SECONDS..
+window.setInterval(function() {
     getTrackID();
     console.log("polling for a new TrackID...");
-    }, 45000);    
+}, 45000);
 </script>
-    
+
 </html>
