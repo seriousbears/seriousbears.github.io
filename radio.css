@@ -34,14 +34,14 @@ body {
 
 #countContainer {
 	z-index: 100;
-	background-color: rgba(255, 0, 0, 0.30);
-	color: #F0F0F0;
+    color: lawngreen;
     text-align: right;
 	margin: 0px;
 	position: absolute;
-	bottom: 50%;
+	top:0px;
     right:0px;
-    margin-right: 10px;
+    margin-top: 3px;
+    margin-right: 5px;
 	font-size: 1em;
 }
 
