@@ -37,13 +37,38 @@ var bearhorn4 = new Howl({
 // parse to an array
 var bearhorns = [bearhorn1, bearhorn1, bearhorn3, bearhorn4];
 
+// slow ya roll (or hack me, DGAF bro)
+var throttleHornInputs = false;
+
+// sweet color generator function lulz
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+	
 // arm the bearhorn...
-function blowHorn(){
-    var whichHorn = Math.floor(Math.random() * 4);
-    var thisHorn = bearhorns[whichHorn];
-    thisHorn.play();
-    document.getElementById('william').classList.add("animate");
-    setTimeout(function(){ document.getElementById('william').classList.remove("animate"); }, 400);
+function blowHorn(randomColor){
+	if(!throttleHornInputs){
+		var whichHorn = Math.floor(Math.random() * 4);
+		var thisHorn = bearhorns[whichHorn];
+		thisHorn.play();
+		document.getElementById('william').classList.add("animate");
+		$(".centerContainer").css("background-color", randomColor);
+		$("#william").css("-webkit-filter", "brightness(200%)");
+		$("#william").css("filter", "brightness(200%)");
+		throttleHornInputs = true;
+		setTimeout(function(){
+			document.getElementById('william').classList.remove("animate");
+			throttleHornInputs = false;
+			$(".centerContainer").css("background-color", "transparent");
+			$("#william").css("-webkit-filter", "brightness(100%)");
+			$("#william").css("filter", "brightness(100%)");
+		}, 800);
+	}
 }
 
 // get the track ID
@@ -56,7 +81,7 @@ function getTrackID(){
 
 </script>
     
-<body onclick="blowHorn()" onload="getTrackID()">
+<body onclick="blowHorn(getRandomColor())" onload="getTrackID()">
     
     <!-- BEARSTREAM -->
     <audio id="bearstream" preload="none" controls>
