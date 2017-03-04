@@ -21,11 +21,11 @@ body {
 }
 
 #idContainer {
+    padding-left: 5px;
 	z-index: 100;
 	width: 100%;
 	background-color: rgba(0, 0, 0, 0.30);
-	color: #F0F0F0;
-	width: 100%;
+	color: greenyellow;
 	margin: 0px;
 	position: absolute;
 	top: 0px;
@@ -34,14 +34,13 @@ body {
 
 #countContainer {
 	z-index: 100;
-    color: lawngreen;
-    text-align: right;
+	color: white;
 	margin: 0px;
 	position: absolute;
-	top:0px;
-    right:0px;
-    margin-top: 3px;
-    margin-right: 5px;
+    text-align: left;
+    width: 100%;
+	bottom: 30%;
+    padding-left: 15px;
 	font-size: 1em;
 }
 
