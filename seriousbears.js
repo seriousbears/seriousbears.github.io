@@ -10,16 +10,27 @@ document.getElementById("responsiveContainerGiphy").style.display = "block";
 
 function toggleChat(){
   
-if(document.getElementById("responsiveContainerChat").style.display == "none" || document.getElementById("responsiveContainerChat").style.display === ""){
+if(document.getElementById("chatContainer").style.display == "none" || document.getElementById("chatContainer").style.display === ""){
   
-  document.getElementById("SXSB2017").style.display = "none";
-  document.getElementById("responsiveContainerChat").style.display = "block";
+  document.getElementById("homepage").style.display = "none";
+  document.getElementById("chatContainer").style.display = "block";
   
   }else{
   
-  document.getElementById("SXSB2017").style.display = "block";
-  document.getElementById("responsiveContainerChat").style.display = "none";
+  document.getElementById("homepage").style.display = "block";
+  document.getElementById("chatContainer").style.display = "none";
   
   }
   
+}
+
+function returnHome(){
+  
+    if(document.getElementById("homepage").style.display == "none" || document.getElementById("homepage").style.display === ""){
+
+    document.getElementById("homepage").style.display = "block";
+    document.getElementById("chatContainer").style.display = "none";
+
+    }
+
 }

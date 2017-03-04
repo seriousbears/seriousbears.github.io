@@ -37,13 +37,14 @@
     
     <!-- TOP NAVIGATION -->
     <nav class="navbar navbar-inverse" style="background-color: #7E5BBE;">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> <a class="navbar-brand" style="color:#D0D0D0;font-family: 'Baumans', serif;" href="#">SERIOUSBEARS</a>
+        
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> <a class="navbar-brand" style="color:#D0D0D0;font-family: 'Baumans', serif;" onclick="returnHome()">SERIOUSBEARS</a>
+        
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item"> <a class="nav-link" onclick="toggleChat()">SXSB</a> </li>
                 <li class="nav-item"> <a class="nav-link" onclick="toggleChat()">Chat</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="#">About</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="https://twitch.streamlabs.com/seriousbears">Donate</a> </li>
+                <!--<li class="nav-item"> <a class="nav-link" href="#">About</a> </li>-->
+                <li class="nav-item"> <a class="nav-link" target="_blank"  href="https://twitch.streamlabs.com/seriousbears">Donate</a> </li>
             </ul>
         </div>
     </nav>
@@ -85,8 +86,10 @@
         <!-- JUMBOTRON -->
         <div id="homepage" class="jumbotron">
 
-            <div id="titleContainer"></div><h1 style="font-size: 2.8em; text-shadow: -5px 0 black, 0 5px black, 5px 0 black, 0 -5px black; ">SOUTH BY SOUTH BEAR</h1><div>
-
+            <div id="titleContainer"><h1 style="font-size: 2.8em; text-shadow: -5px 0 black, 0 5px black, 5px 0 black, 0 -5px black; ">SOUTH <span style="color:yellowgreen">BY</span> SOUTH <span style="color:yellowgreen">BEAR</span></h1></div>
+            
+            <br>
+            
             <p class="lead">Broadcasting LIVE from an undisclosed location in Austin, TX, during the South By Southwest (SXSW) festival. We're streaming in support of NRDC, fighting climate change and preserving the wild.</p>
             
             <center>
@@ -101,7 +104,7 @@
             
             <br>
                 
-            <p class="lead"> <a class="btn btn-danger btn-lg" target="_blank" href="https://twitch.streamlabs.com/seriousbears" role="button">DONATE</a> </p>
+            <p class="lead"> <a class="btn btn-danger btn-lg" target="_blank" href="https://twitch.streamlabs.com/seriousbears" role="button" style="font-size: 1.3em">DONATE</a> </p>
         </div>
         
     </div>
