@@ -19,7 +19,11 @@ display:none;
 }
 
 .jumbotron {
-margin-bottom: 0 !important;
+margin-bottom: 0px !important;
+margin-top:0px;
+padding:5%;
+background-color: #6441a4;
+color: white;
 }
 
 .navbar {
