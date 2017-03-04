@@ -57,17 +57,12 @@
             <iframe frameborder="0" scrolling="no" class="embed-responsive-item" src="/radio.html"></iframe>
         </div>
         
-        <!-- TWITCH CHAT -->
-        <div id="chatContainer" class="embed-responsive embed-responsive-16by9">
-            <iframe frameborder="0" scrolling="no" class="embed-responsive-item" src="http://www.twitch.tv/seriousbears/chat" height="720" width="1280"></iframe>
-        </div>
-        
         <!-- TWITCH VIDEO -->
-        <!--
         <div id="twitchContainer" class="embed-responsive embed-responsive-16by9">
             <script src="http://player.twitch.tv/js/embed/v1.js"></script>
             <div id="seriousbearsVideo"></div>
             <script type="text/javascript">
+                
             var options = {
                 width: 1280,
                 height: 720,
@@ -75,13 +70,30 @@
             };
 
             var twitchPlayer = new Twitch.Player("seriousbearsVideo", options);
-
+            
+            // Here are all the possible Twitch events which would trigger a call to displayModule()
             twitchPlayer.addEventListener(Twitch.Player.ONLINE, () => {
-                console.log('DEBUG: Twitch Player became ONLINE!');
+                displayModule('twitch');
+                console.log("TWITCH EVENT: Twitch is Online!");
             });
+                
+            twitchPlayer.addEventListener(Twitch.Player.OFFLINE, () => {
+                displayModule('oso');
+                console.log("TWITCH EVENT: Twitch BECAME Offline after previously being Online!");
+            });
+            
+            twitchPlayer.addEventListener(Twitch.Player.ENDED, () => {
+                displayModule('oso');
+                console.log("TWITCH EVENT: Twitch is ENDED - could have already been that way...");
+            });
+                
             </script>
         </div>
-        -->
+        
+        <!-- TWITCH CHAT -->
+        <div id="chatContainer" class="embed-responsive embed-responsive-16by9">
+            <iframe frameborder="0" scrolling="no" class="embed-responsive-item" src="http://www.twitch.tv/seriousbears/chat" height="720" width="1280"></iframe>
+        </div>
         
         <!-- JUMBOTRON -->
         <div id="homepage" class="jumbotron">
