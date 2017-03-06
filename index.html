@@ -32,7 +32,7 @@
 			<ul class="navbar-nav">
 				<li class="nav-item"> <a class="nav-link" href="#whodis">Who dis?</a> </li>
 				<li class="nav-item"> <a class="nav-link" href="#djs">The DJs</a> </li>
-				<li class="nav-item"> <a class="nav-link" href="#chatContainer" onclick="toggleChat()">Chatroom</a> </li>
+				<li class="nav-item"> <a class="nav-link" href="#chat" onclick="toggleChat()">Chatroom</a> </li>
 				<li class="nav-item"> <a class="nav-link" target="_blank" href="https://twitch.streamlabs.com/seriousbears">Donate</a> </li>
 				<li class="nav-item"> <a class="nav-link" href="./radio.html">OSO Player</a> </li>
 			</ul>
@@ -45,13 +45,13 @@
 			<iframe frameborder="0" scrolling="no" class="embed-responsive-item" src="./radio.html"></iframe>
 		</div>
 		<!-- TWITCH CHAT -->
-		<div id="chatContainer" class="embed-responsive embed-responsive-16by9">
+		<div id="chat" class="embed-responsive embed-responsive-16by9">
 			<iframe frameborder="0" scrolling="no" class="embed-responsive-item" src="http://www.twitch.tv/seriousbears/chat" height="720" width="1280"></iframe>
 		</div>
 		<!-- NRDC JUMBOTRON -->
 		<div id="homepage" class="jumbotron NRDC">
 			<div id="titleContainer"> <strong><h1 style="font-size: 4em; text-shadow: -5px 0 black, 0 5px black, 5px 0 black, 0 -5px black; ">SOUTH BY SOUTH <span style="color:yellowgreen">BEAR</span></h1></strong></div>
-			<p class="lead">Broadcasting LIVE from an undisclosed location in Austin, TX, during the South By Southwest (SXSW) festival. We're streaming in support of NRDC, fighting climate change and preserving the wild.</p>
+			<p class="lead">Broadcasting LIVE from an undisclosed location in Austin, TX, during the South By Southwest (SXSW) festival. We're streaming in support of <a href="https://www.nrdc.org/about" style="color:hotpink;font-size:1.4em;" target="_blank" alt="National Resources Defense Council">NRDC</a> — fighting climate change and preserving the wild.</p>
 			<center>
 				<a href="https://www.nrdc.org/about" target="_blank"><img src="./images/nrdc-sm.png" alt="National Resources Defense Council" style="padding-top:15px;width:60%; max-width:180px"></a>
 				<a href="https://twitch.streamlabs.com/seriousbears" target="_blank"><img src="./images/sxsblogo.png" alt="SXSB2017" style="padding-top:15px;width:60%; max-width:180px"></a>
@@ -136,7 +136,7 @@
 	<!-- FOOTER -->
 	<footer class="footer">
 		<div class="container">
-			<p class="text-muted">SERIOUS BEARS RADIO ʕ•͡ᴥ•ʔ 2017</p> <img id="william" src="./images/bear2.png" alt="WILLIAM" style="opacity:0.75"> </img>
+			<p class="text-muted">SERIOUS BEARS RADIO ʕ•͡ᴥ•ʔ 2017</p> <img id="william" src="./images/bear2.png" alt="WILLIAM" style="opacity:0.75; width:100%; max-width:250px;"> </img>
 		</div>
 	</footer>
 	<!-- INIT BOOTSTRAP4 SCRIPTS (jQuery first, then Tether, then Bootstrap JS...) -->

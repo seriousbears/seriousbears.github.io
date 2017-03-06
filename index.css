@@ -13,7 +13,7 @@ body {
 	margin-bottom: 60px;
 }
 
-#chatContainer {
+#chat {
 	display: none;
 }
 
@@ -99,7 +99,7 @@ ul {
 .fa {
 	padding: 30px;
 	margin: 0px;
-	font-size: 2.3em !important;
+	font-size: 1.8em !important;
 	text-align: center !important;
 	text-decoration: none;
 	color: #ff33cc;

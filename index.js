@@ -5,13 +5,13 @@ function toggleChat() {
 		window.open("http://chat.seriousbears.net/");
 	}
 	else {
-		if (document.getElementById("chatContainer").style.display == "none" || document.getElementById("chatContainer").style.display === "") {
+		if (document.getElementById("chat").style.display == "none" || document.getElementById("chat").style.display === "") {
 			document.getElementById("homepage").style.display = "none";
-			document.getElementById("chatContainer").style.display = "block";
+			document.getElementById("chat").style.display = "block";
 		}
 		else {
 			document.getElementById("homepage").style.display = "block";
-			document.getElementById("chatContainer").style.display = "none";
+			document.getElementById("chat").style.display = "none";
 		}
 	}
 }
@@ -19,6 +19,6 @@ function toggleChat() {
 function returnHome() {
 	if (document.getElementById("homepage").style.display == "none" || document.getElementById("homepage").style.display === "") {
 		document.getElementById("homepage").style.display = "block";
-		document.getElementById("chatContainer").style.display = "none";
+		document.getElementById("chat").style.display = "none";
 	}
 }
