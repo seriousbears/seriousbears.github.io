@@ -10,133 +10,63 @@
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=VT323">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.2/howler.core.min.js"></script>
+<script src="./radio.js"></script>
 <link rel="stylesheet" href="./radio.css">
-<script>
-// load the bearhorns
-var bearhorn1 = new Howl({
-    src: ['./sounds/bearhorn1.mp3'],
-    preload: true
-});
-
-var bearhorn2 = new Howl({
-    src: ['./sounds/bearhorn2.mp3'],
-    preload: true
-});
-
-var bearhorn3 = new Howl({
-    src: ['./sounds/bearhorn3.mp3'],
-    preload: true
-});
-
-var bearhorn4 = new Howl({
-    src: ['./sounds/bearhorn4.mp3'],
-    preload: true
-});
-
-// parse to an array
-var bearhorns = [bearhorn1, bearhorn1, bearhorn3, bearhorn4];
-
-// slow ya roll (or hack me, DGAF bro)
-var throttleHornInputs = false;
-
-function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min;
-}
-    
-// sweet color generator function lulz
-function getRandomColor() {
-    var color = ["yellowgreen", "#ff33cc"];
-    var i = getRandomInt(0, color.length);
-    console.log(i);
-    return color[i];
-}
-    
-// arm the bearhorn...
-function blowHorn(randomColor) {
-
-    if (!throttleHornInputs) {
-        var whichHorn = getRandomInt(0, 4); // array positions 0-3
-        var thisHorn = bearhorns[whichHorn];
-        thisHorn.play();
-
-        // WILLIAM BECOMES ENRAGED
-        $("#william").css("-webkit-filter", "brightness(200%)");
-        $("#william").css("filter", "brightness(200%)");
-
-        /// SLOW YO ROLL
-        throttleHornInputs = true;
-
-        // BEGIN THE ANIMATION
-        document.getElementById('william').classList.add("animate");
-        
-        // START BLINKING THE BACKGROUND
-        var backgroundBlink = setInterval(function() {
-            var currentBGcolor = $(".centerContainer").css("background-color");
-
-            if (currentBGcolor === "rgba(0, 0, 0, 0)") {
-                $(".centerContainer").css("background-color", randomColor);
-            } else {
-                $(".centerContainer").css("background-color", "transparent");
-            }
-        }, 69);
-        
-        // CONTINUE ALL THE ABOVE STATES FOR 800 MS
-        setTimeout(function() {
-
-            // SIGNAL THE STOP
-            throttleHornInputs = false;
-
-            // STOP THE ANIMATION
-            document.getElementById('william').classList.remove("animate");
-            
-            // STOP THE BLINKING
-            clearInterval(backgroundBlink);
-
-            // STOP THE OTHER STUFF
-            $(".centerContainer").css("background-color", "transparent");
-            $("#william").css("-webkit-filter", "brightness(100%)");
-            $("#william").css("filter", "brightness(100%)");
-        }, 800);
-        
-        // INCREASE HYPE
-        $("#hornCount").text(parseInt($("#hornCount").text()) + 1);
-    }
-}
-
-// get the track ID
-function getTrackID() {
-    $.getJSON('http://listen.seriousbears.net/stats', function(data) {
-        console.log(data.icestats.source[0].title);
-        $("#nowplaying").replaceWith(data.icestats.source[0].title);
-    });
-}
-</script>
 
 <body onclick="blowHorn(getRandomColor())" onload="getTrackID()">
-    <!-- TRACK ID -->
-    <div id="idContainer"><b>NP: </b><span id="nowplaying">RETRIEVING TRACK ID...</span></div>
-    <!-- BEARHORN COUNTER -->
-    <div id="countContainer">🐻x<strong><span id="hornCount">0 <i>click me plz :)</i></span></strong></div>
-    <!-- CENTER CONTAINER -->
-    <div class="centerContainer">
-        <!-- WILLIAM -->
-        <img id="william" src="./images/bear2.png" alt="WILLIAM">
-    </div>
-    <!-- GIPHY -->
-    <iframe id="giphy" src="http://tv.giphy.com/bear" frameborder="0" scrolling="no"></iframe>
-    <!-- BEARSTREAM -->
-    <audio id="bearstream" preload="none" controls>
-        <source src="http://listen.seriousbears.net/" type="audio/mpeg">
-    </audio>
+	<!-- BEARS AUDIO -->
+	<div id="osoContainer">
+		<!-- TRACK ID -->
+		<div id="idContainer"><b>NP: </b><span id="nowplaying">RETRIEVING TRACK ID...</span></div>
+		<!-- BEARHORN COUNTER -->
+		<div id="countContainer">🐻x<strong><span id="hornCount">0 <i>click me plz :)</i></span></strong></div>
+		<!-- CENTER CONTAINER -->
+		<div class="centerContainer">
+			<!-- WILLIAM --><img id="william" src="./images/bear2.png" alt="WILLIAM"> </div>
+		<!-- GIPHY -->
+		<iframe id="giphy" src="http://tv.giphy.com/bear" frameborder="0" scrolling="no"></iframe>
+		<!-- BEARSTREAM -->
+		<audio id="bearstream" preload="none" controls>
+			<source src="http://listen.seriousbears.net/" type="audio/mpeg"> </audio>
+	</div>
+	<!-- TWITCH VIDEO -->
+	<div id="twitchContainer">
+		<script src="http://player.twitch.tv/js/embed/v1.js"></script>
+		<div id="seriousbearsVideo"></div>
+		<script type="text/javascript">
+			var options = {
+				width: 1280
+				, height: 720
+				, channel: "seriousbears"
+			, };
+			var twitchPlayer = new Twitch.Player("seriousbearsVideo", options);
+			// Here are all the possible Twitch events which would trigger a call to displayModule()
+			twitchPlayer.addEventListener(Twitch.Player.ONLINE, () => {
+				displayModule('twitch');
+				console.log("TWITCH PLAYER EVENT: Twitch is Online!");
+			});
+			twitchPlayer.addEventListener(Twitch.Player.OFFLINE, () => {
+				displayModule('handoff');
+				console.log("TWITCH PLAYER EVENT: Twitch BECAME Offline after previously being Online!");
+			});
+			twitchPlayer.addEventListener(Twitch.Player.ENDED, () => {
+				displayModule('oso');
+				console.log("TWITCH PLAYER EVENT: Twitch is ENDED - could have already been that way...");
+			});
+		</script>
+	</div>
 </body>
 <script>
-// POLL THE STREAM API FOR NEW TRACKID EVERY 45 SECONDS..
-window.setInterval(function() {
-    getTrackID();
-    console.log("polling for a new TrackID...");
-}, 45000);
+	// POLL THE STREAM API FOR NEW TRACKID EVERY 45 SECONDS..
+	window.setInterval(function () {
+		console.log("polling for a new TrackID and checking Twitch stream status...");
+		getTrackID();
+		getTwitchStatus();
+	}, 45000);
+	$(window).resize(function () {
+		$('#twitchContainer').find('iframe[src$="http://player.twitch.tv/?channel=seriousbears"]').width($(window).width());
+		$('#twitchContainer').find('iframe[src$="http://player.twitch.tv/?channel=seriousbears"]').height($(window).height());
+	});
 </script>
 
 </html>

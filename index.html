@@ -41,34 +41,8 @@
 	<!-- PRIMARY CONTAINER -->
 	<div class="container">
 		<!-- OSO PLAYER -->
-		<div id="osoContainer" class="embed-responsive embed-responsive-16by9">
+		<div id="osoContainer" class="embed-responsive embed-responsive-16by9" allowfullscreen="true">
 			<iframe frameborder="0" scrolling="no" class="embed-responsive-item" src="./radio.html"></iframe>
-		</div>
-		<!-- TWITCH VIDEO -->
-		<div id="twitchContainer" class="embed-responsive embed-responsive-16by9">
-			<script src="http://player.twitch.tv/js/embed/v1.js"></script>
-			<div id="seriousbearsVideo"></div>
-			<script type="text/javascript">
-				var options = {
-					width: 1280
-					, height: 720
-					, channel: "seriousbears"
-				, };
-				var twitchPlayer = new Twitch.Player("seriousbearsVideo", options);
-				// Here are all the possible Twitch events which would trigger a call to displayModule()
-				twitchPlayer.addEventListener(Twitch.Player.ONLINE, () => {
-					displayModule('twitch');
-					console.log("TWITCH EVENT: Twitch is Online!");
-				});
-				twitchPlayer.addEventListener(Twitch.Player.OFFLINE, () => {
-					displayModule('oso');
-					console.log("TWITCH EVENT: Twitch BECAME Offline after previously being Online!");
-				});
-				twitchPlayer.addEventListener(Twitch.Player.ENDED, () => {
-					displayModule('oso');
-					console.log("TWITCH EVENT: Twitch is ENDED - could have already been that way...");
-				});
-			</script>
 		</div>
 		<!-- TWITCH CHAT -->
 		<div id="chatContainer" class="embed-responsive embed-responsive-16by9">
@@ -170,7 +144,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 	<!-- INIT Custom JS (Loaded last for interaction with Twitch modules declared inline above) -->
-	<script src="./seriousbears.js"></script>
+	<script src="./index.js"></script>
 </body>
 
 </html>
