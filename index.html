@@ -2,166 +2,175 @@
 <html lang="en">
 
 <head>
-    <title>SERIOUSBEARS</title>
-    <!-- Meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="theme-color" content="#333" />
-    <!-- Favicon -->
-    <link rel="icon" sizes="192x192" href="./images/icon.png">
-    <!-- Manifest for Chrome Mobile App Mode -->
-    <link rel="manifest" href="./manifest.json">
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="./index.css">
-    <!-- Custom Fonts -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Baumans"> </head>
+	<title>SERIOUSBEARS</title>
+	<!-- Meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="theme-color" content="#333" />
+	<!-- Favicon -->
+	<link rel="icon" sizes="192x192" href="./images/icon.png">
+	<!-- Manifest for Chrome Mobile App Mode -->
+	<link rel="manifest" href="./manifest.json">
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="./index.css">
+	<!-- Custom Fonts -->
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Baumans">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> </head>
 
 <body>
-        <!-- TOP NAVIGATION -->
-        <nav class="navbar navbar-toggleable-md navbar-inverse bg-faded" style="background-color: #7E5BBE;">
-            <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" style="color:#D0D0D0;"> <span class="navbar-toggler-icon"></span> </button> <a class="navbar-brand" href="#" onclick="returnHome()" id="headertext">SERIOUSBEARS</a> <a class="navbar-brand" href="#" onclick="returnHome()" id="headertextsm">ʕ•͡ᴥ•ʔ</a>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item"> <a class="nav-link" href="#whodis">Who dis?</a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="#djs">The DJ's</a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="#chatContainer" onclick="toggleChat()">Chatroom</a> </li>
-                    <li class="nav-item"> <a class="nav-link" target="_blank" href="https://twitch.streamlabs.com/seriousbears">Donate</a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="./radio.html">OSO Player</a> </li>
-                </ul>
-            </div>
-        </nav>
-    <!-- PRIMARY CONTAINER -->
-    <div class="container">
-        <!-- OSO PLAYER -->
-        <div id="osoContainer" class="embed-responsive embed-responsive-16by9">
-            <iframe frameborder="0" scrolling="no" class="embed-responsive-item" src="./radio.html"></iframe>
-        </div>
-        <!-- TWITCH VIDEO -->
-        <div id="twitchContainer" class="embed-responsive embed-responsive-16by9">
-            <script src="http://player.twitch.tv/js/embed/v1.js"></script>
-            <div id="seriousbearsVideo"></div>
-            <script type="text/javascript">
-                var options = {
-                    width: 1280
-                    , height: 720
-                    , channel: "seriousbears"
-                , };
-                var twitchPlayer = new Twitch.Player("seriousbearsVideo", options);
-                // Here are all the possible Twitch events which would trigger a call to displayModule()
-                twitchPlayer.addEventListener(Twitch.Player.ONLINE, () => {
-                    displayModule('twitch');
-                    console.log("TWITCH EVENT: Twitch is Online!");
-                });
-                twitchPlayer.addEventListener(Twitch.Player.OFFLINE, () => {
-                    displayModule('oso');
-                    console.log("TWITCH EVENT: Twitch BECAME Offline after previously being Online!");
-                });
-                twitchPlayer.addEventListener(Twitch.Player.ENDED, () => {
-                    displayModule('oso');
-                    console.log("TWITCH EVENT: Twitch is ENDED - could have already been that way...");
-                });
-            </script>
-        </div>
-        <!-- TWITCH CHAT -->
-        <div id="chatContainer" class="embed-responsive embed-responsive-16by9">
-            <iframe frameborder="0" scrolling="no" class="embed-responsive-item" src="http://www.twitch.tv/seriousbears/chat" height="720" width="1280"></iframe>
-        </div>
-        <!-- NRDC JUMBOTRON -->
-        <div id="homepage" class="jumbotron NRDC">
-            <div id="titleContainer"> <strong><h1 style="font-size: 4em; text-shadow: -5px 0 black, 0 5px black, 5px 0 black, 0 -5px black; ">SOUTH <span style="color:yellowgreen">BY</span> SOUTH <span style="color:yellowgreen">BEAR</span></h1></strong></div>
-            <hr>
-            <p class="lead">Broadcasting LIVE from an undisclosed location in Austin, TX, during the South By Southwest (SXSW) festival. We're streaming in support of NRDC, fighting climate change and preserving the wild.</p>
-            <center>
-                <a href="https://www.nrdc.org/about" target="_blank"><img src="./images/nrdc-sm.png" alt="National Resources Defense Council" style="padding-top:15px;width:60%; max-width:180px"></a>
-                <a href="https://twitch.streamlabs.com/seriousbears" target="_blank"><img src="./images/sxsblogo.png" alt="SXSB2017" style="padding-top:15px;width:60%; max-width:180px"></a>
-            </center>
-            <hr>
-            <p>All donations raised will go towards the NRDC. Between all the bears, we have enough streaming gear. We've only got one planet.</p>
-            <br>
-            <p class="lead"> <a class="btn btn-danger btn-lg" target="_blank" href="https://twitch.streamlabs.com/seriousbears" role="button" style="font-size: 1.3em">DONATE</a> </p>
-        </div>
-        <!-- WHODIS JUMBOTRON -->
-        <div class="jumbotron ABOUT" id="whodis">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12"> <img src="./images/about.png" alt="National Resources Defense Council" style="padding-top:15px;width:60%; max-width:3px">
-                        <h1 style="font-size: 2.8em; text-shadow: -5px 0 black, 0 5px black, 5px 0 black, 0 -5px black; "><strong>WHO DIS?</strong></h1>
-                        <br>
-                        <p>Underground worldwide internet radio for bears, geeks and gamers.</p>
-                        <p>Our schedule is a bit random at the moment. The best way to keep up is to <a href="https://www.twitch.tv/seriousbears">Follow</a> us!</p>
-                        <br>
-                        <h1>WTF is up with the chat?</h1>
-                        <hr>
-                        <p>We've got a special integration set up that binds the Twitch chat to an IRC channel. Those chatting in IRC can see Twitch chat and vice versa. Pretty cool! <a href="http://chat.seriousbears.net/">Make sure you say hello!</a></p>
-                        <p>Or, if you prefer, come hang out in #seriousbears on QuakeNet and say hello there, it all goes to the same place!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- THE DJS JUMBOTRON -->
-        <div class="jumbotron DJS" id="djs">
-            <div class="container">
-                <h1 style="font-size: 2.8em; text-shadow: -5px 0 black, 0 5px black, 5px 0 black, 0 -5px black; "><strong>THE DJ'S</strong></h1>
-                <br>
-                <div class="row">
-                    <div class="col">
-                        <h2>BearLimit</h2>
-                        <p><em>Future Bass, Prog House, anything Skrillex</em></p>
-                        <ul class="list-group">
-                            <li>2x NDX400 CDJs</li>
-                            <li>Native Instruments Z2 Mixer</li>
-                            <li>Midifighter 3D</li>
-                            <li>Logitech C920 Webcam</li>
-                            <li>Macbook Pro</li>
-                        </ul>
-                        <br>
-                        <h2>MAMA-BEAR</h2>
-                        <p><em>Hip Hop, Dubstep, Garage</em></p>
-                        <ul class="list-group">
-                            <li>2x Denon SC3700</li>
-                            <li>1x Numark M6 Mixer</li>
-                            <li>Korg Kaoss Pad Mini</li>
-                            <li>Kinect + Several Webcams</li>
-                        </ul>
-                        <br> </div>
-                    <div class="col">
-                        <h2>bearfunction</h2>
-                        <p><em>Drum and Bass, Jungle, Trap</em></p>
-                        <ul class="list-group">
-                            <li>Native Instruments Traktor S8</li>
-                            <li>Logitech C920 Webcam</li>
-                            <li>Asus Laptop for Music</li>
-                            <li>i7 4790K Desktop for Streaming</li>
-                        </ul>
-                        <br>
-                        <h2>polerbear</h2>
-                        <p><em>Science, Doing Science, Lulz</em></p>
-                        <ul class="list-group">
-                            <li>His entire setup consists of audio adapters, high-end headphones, and black magic. We don't even know how.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <p class="text-muted">SERIOUS BEARS RADIO ʕ•͡ᴥ•ʔ 2017</p>
-        </div>
-    </footer>
-    <!-- INIT BOOTSTRAP4 SCRIPTS (jQuery first, then Tether, then Bootstrap JS...) -->
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    <!-- INIT Custom JS (Loaded last for interaction with Twitch modules declared inline above) -->
-    <script src="./seriousbears.js"></script>
+	<!-- TOP NAVIGATION -->
+	<nav class="navbar navbar-toggleable-md navbar-inverse bg-faded" style="background-color: #7E5BBE;">
+		<button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" style="color:#D0D0D0;"> <span class="navbar-toggler-icon"></span> </button> <a class="navbar-brand" href="#" onclick="returnHome()" id="headertext">SERIOUSBEARS</a> <a class="navbar-brand" href="#" onclick="returnHome()" id="headertextsm">ʕ•͡ᴥ•ʔ</a>
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav">
+				<li class="nav-item"> <a class="nav-link" href="#whodis">Who dis?</a> </li>
+				<li class="nav-item"> <a class="nav-link" href="#djs">The DJ's</a> </li>
+				<li class="nav-item"> <a class="nav-link" href="#chatContainer" onclick="toggleChat()">Chatroom</a> </li>
+				<li class="nav-item"> <a class="nav-link" target="_blank" href="https://twitch.streamlabs.com/seriousbears">Donate</a> </li>
+				<li class="nav-item"> <a class="nav-link" href="./radio.html">OSO Player</a> </li>
+			</ul>
+		</div>
+	</nav>
+	<!-- PRIMARY CONTAINER -->
+	<div class="container">
+		<!-- OSO PLAYER -->
+		<div id="osoContainer" class="embed-responsive embed-responsive-16by9">
+			<iframe frameborder="0" scrolling="no" class="embed-responsive-item" src="./radio.html"></iframe>
+		</div>
+		<!-- TWITCH VIDEO -->
+		<div id="twitchContainer" class="embed-responsive embed-responsive-16by9">
+			<script src="http://player.twitch.tv/js/embed/v1.js"></script>
+			<div id="seriousbearsVideo"></div>
+			<script type="text/javascript">
+				var options = {
+					width: 1280
+					, height: 720
+					, channel: "seriousbears"
+				, };
+				var twitchPlayer = new Twitch.Player("seriousbearsVideo", options);
+				// Here are all the possible Twitch events which would trigger a call to displayModule()
+				twitchPlayer.addEventListener(Twitch.Player.ONLINE, () => {
+					displayModule('twitch');
+					console.log("TWITCH EVENT: Twitch is Online!");
+				});
+				twitchPlayer.addEventListener(Twitch.Player.OFFLINE, () => {
+					displayModule('oso');
+					console.log("TWITCH EVENT: Twitch BECAME Offline after previously being Online!");
+				});
+				twitchPlayer.addEventListener(Twitch.Player.ENDED, () => {
+					displayModule('oso');
+					console.log("TWITCH EVENT: Twitch is ENDED - could have already been that way...");
+				});
+			</script>
+		</div>
+		<!-- TWITCH CHAT -->
+		<div id="chatContainer" class="embed-responsive embed-responsive-16by9">
+			<iframe frameborder="0" scrolling="no" class="embed-responsive-item" src="http://www.twitch.tv/seriousbears/chat" height="720" width="1280"></iframe>
+		</div>
+		<!-- NRDC JUMBOTRON -->
+		<div id="homepage" class="jumbotron NRDC">
+			<div id="titleContainer"> <strong><h1 style="font-size: 4em; text-shadow: -5px 0 black, 0 5px black, 5px 0 black, 0 -5px black; ">SOUTH BY SOUTH <span style="color:yellowgreen">BEAR</span></h1></strong></div>
+			<p class="lead">Broadcasting LIVE from an undisclosed location in Austin, TX, during the South By Southwest (SXSW) festival. We're streaming in support of NRDC, fighting climate change and preserving the wild.</p>
+			<center>
+				<a href="https://www.nrdc.org/about" target="_blank"><img src="./images/nrdc-sm.png" alt="National Resources Defense Council" style="padding-top:15px;width:60%; max-width:180px"></a>
+				<a href="https://twitch.streamlabs.com/seriousbears" target="_blank"><img src="./images/sxsblogo.png" alt="SXSB2017" style="padding-top:15px;width:60%; max-width:180px"></a>
+			</center>
+			<hr>
+			<br>
+			<p>All donations raised will go towards the NRDC. Between all the bears, we have enough streaming gear. We've only got one planet.</p>
+			<br>
+			<p class="lead"> <a class="btn btn-danger btn-lg" target="_blank" href="https://twitch.streamlabs.com/seriousbears" role="button" style="font-size: 1.3em">DONATE</a> </p>
+		</div>
+		<!-- WHODIS JUMBOTRON -->
+		<div class="jumbotron ABOUT" id="whodis">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12">
+						<h1 style="font-size: 2.8em; text-shadow: -5px 0 black, 0 5px black, 5px 0 black, 0 -5px black; "><strong>WHO WE ARE</strong></h1>
+						<br>
+						<p>Underground worldwide internet radio for bears, geeks and gamers.</p>
+						<p>Our schedule is a bit random at the moment. The best way to keep up is to <a href="https://www.twitch.tv/seriousbears">FOLLOW</a> us!</p>
+						<!-- Add font awesome icons -->
+						<a href="https://www.facebook.com/SeriousBears/" class="fa fa-facebook"></a>
+						<a href="https://twitter.com/seriousbears" class="fa fa-twitter"></a>
+						<a href="https://soundcloud.com/seriousbears" class="fa fa-soundcloud"></a>
+						<a href="https://www.twitch.tv/seriousbears" class="fa fa-twitch"></a>
+						<a href="https://www.youtube.com/c/SeriousBearsNetRadio" class="fa fa-youtube"></a>
+						<a href="http://seriousbears.tumblr.com/" class="fa fa-tumblr"></a>
+						<br>
+						<hr><i><h1>WTF is up with the chat?</h1></i>
+						<br>
+						<p>We've got a special integration set up that binds the Twitch chat to an IRC channel. Those chatting in IRC can see Twitch chat and vice versa. Pretty cool! <a href="http://chat.seriousbears.net/">Make sure you say hello!</a></p>
+						<p>Or, if you prefer, come hang out in <strong>#seriousbears </strong> on QuakeNet and say hello there, it all goes to the same place!</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- THE DJS JUMBOTRON -->
+		<div class="jumbotron DJS" id="djs">
+			<div class="container">
+				<h1 style="font-size: 2.8em; text-shadow: -5px 0 black, 0 5px black, 5px 0 black, 0 -5px black; "><strong>THE DJ'S</strong></h1>
+				<br>
+				<div class="row">
+					<div class="col">
+						<h2>BearLimit</h2>
+						<p><em>Future Bass, Prog House, anything Skrillex</em></p>
+						<ul class="list-group">
+							<li>2x NDX400 CDJs</li>
+							<li>Native Instruments Z2 Mixer</li>
+							<li>Midifighter 3D</li>
+							<li>Logitech C920 Webcam</li>
+							<li>Macbook Pro</li>
+						</ul>
+						<br>
+						<h2>MAMA-BEAR</h2>
+						<p><em>Hip Hop, Dubstep, Garage</em></p>
+						<ul class="list-group">
+							<li>2x Denon SC3700</li>
+							<li>1x Numark M6 Mixer</li>
+							<li>Korg Kaoss Pad Mini</li>
+							<li>Kinect + Several Webcams</li>
+						</ul>
+						<br> </div>
+					<div class="col">
+						<h2>bearfunction</h2>
+						<p><em>Drum and Bass, Jungle, Trap</em></p>
+						<ul class="list-group">
+							<li>Native Instruments Traktor S8</li>
+							<li>Logitech C920 Webcam</li>
+							<li>Asus Laptop for Music</li>
+							<li>i7 4790K Desktop for Streaming</li>
+						</ul>
+						<br>
+						<h2>polerbear</h2>
+						<p><em>Wild Card ¯\_(ツ)_/¯</em></p>
+						<ul class="list-group">
+							<li>His entire setup consists of audio adapters, casio electronic keyboards, high-end headphones, and black magic. We don't even know how.</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- FOOTER -->
+	<footer class="footer">
+		<div class="container">
+			<p class="text-muted">SERIOUS BEARS RADIO ʕ•͡ᴥ•ʔ 2017</p>
+		</div>
+	</footer>
+	<!-- INIT BOOTSTRAP4 SCRIPTS (jQuery first, then Tether, then Bootstrap JS...) -->
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	<!-- INIT Custom JS (Loaded last for interaction with Twitch modules declared inline above) -->
+	<script src="./seriousbears.js"></script>
 </body>
 
 </html>
