@@ -39,22 +39,25 @@ var bearhorns = [bearhorn1, bearhorn1, bearhorn3, bearhorn4];
 // slow ya roll (or hack me, DGAF bro)
 var throttleHornInputs = false;
 
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+    
 // sweet color generator function lulz
 function getRandomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
+    var color = ["yellowgreen", "#ff33cc"];
+    var i = getRandomInt(0, color.length);
+    console.log(i);
+    return color[i];
 }
-
+    
 // arm the bearhorn...
 function blowHorn(randomColor) {
 
     if (!throttleHornInputs) {
-
-        var whichHorn = Math.floor(Math.random() * 4);
+        var whichHorn = getRandomInt(0, 4); // array positions 0-3
         var thisHorn = bearhorns[whichHorn];
         thisHorn.play();
 
