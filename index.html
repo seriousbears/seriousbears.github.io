@@ -10,20 +10,19 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#333" />
     <!-- Favicon -->
-    <link rel="icon" sizes="192x192" href="/images/icon.png">
+    <link rel="icon" sizes="192x192" href="./images/icon.png">
     <!-- Manifest for Chrome Mobile App Mode -->
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="./manifest.json">
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="./index.css">
     <!-- Custom Fonts -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Baumans"> </head>
 
 <body>
-    <div class="container">
         <!-- TOP NAVIGATION -->
         <nav class="navbar navbar-toggleable-md navbar-inverse bg-faded" style="background-color: #7E5BBE;">
             <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" style="color:#D0D0D0;"> <span class="navbar-toggler-icon"></span> </button> <a class="navbar-brand" href="#" onclick="returnHome()" id="headertext">SERIOUSBEARS</a> <a class="navbar-brand" href="#" onclick="returnHome()" id="headertextsm">ʕ•͡ᴥ•ʔ</a>
@@ -33,16 +32,15 @@
                     <li class="nav-item"> <a class="nav-link" href="#djs">The DJ's</a> </li>
                     <li class="nav-item"> <a class="nav-link" href="#chatContainer" onclick="toggleChat()">Chatroom</a> </li>
                     <li class="nav-item"> <a class="nav-link" target="_blank" href="https://twitch.streamlabs.com/seriousbears">Donate</a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="/radio.html">OSO Player</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="./radio.html">OSO Player</a> </li>
                 </ul>
             </div>
         </nav>
-    </div>
     <!-- PRIMARY CONTAINER -->
     <div class="container">
         <!-- OSO PLAYER -->
         <div id="osoContainer" class="embed-responsive embed-responsive-16by9">
-            <iframe frameborder="0" scrolling="no" class="embed-responsive-item" src="/radio.html"></iframe>
+            <iframe frameborder="0" scrolling="no" class="embed-responsive-item" src="./radio.html"></iframe>
         </div>
         <!-- TWITCH VIDEO -->
         <div id="twitchContainer" class="embed-responsive embed-responsive-16by9">
@@ -76,14 +74,14 @@
         </div>
         <!-- NRDC JUMBOTRON -->
         <div id="homepage" class="jumbotron NRDC">
-            <div id="titleContainer"> <strong><h1 style="font-size: 2.8em; text-shadow: -5px 0 black, 0 5px black, 5px 0 black, 0 -5px black; ">SOUTH <span style="color:yellowgreen">BY</span> SOUTH <span style="color:yellowgreen">BEAR</span></h1></strong></div>
-            <br>
+            <div id="titleContainer"> <strong><h1 style="font-size: 4em; text-shadow: -5px 0 black, 0 5px black, 5px 0 black, 0 -5px black; ">SOUTH <span style="color:yellowgreen">BY</span> SOUTH <span style="color:yellowgreen">BEAR</span></h1></strong></div>
+            <hr>
             <p class="lead">Broadcasting LIVE from an undisclosed location in Austin, TX, during the South By Southwest (SXSW) festival. We're streaming in support of NRDC, fighting climate change and preserving the wild.</p>
             <center>
-                <a href="https://www.nrdc.org/about" target="_blank"><img src="/images/nrdc-sm.png" alt="National Resources Defense Council" style="padding-top:15px;width:60%; max-width:180px"></a>
-                <a href="https://twitch.streamlabs.com/seriousbears" target="_blank"><img src="/images/sxsblogo.png" alt="SXSB2017" style="padding-top:15px;width:60%; max-width:180px"></a>
+                <a href="https://www.nrdc.org/about" target="_blank"><img src="./images/nrdc-sm.png" alt="National Resources Defense Council" style="padding-top:15px;width:60%; max-width:180px"></a>
+                <a href="https://twitch.streamlabs.com/seriousbears" target="_blank"><img src="./images/sxsblogo.png" alt="SXSB2017" style="padding-top:15px;width:60%; max-width:180px"></a>
             </center>
-            <br>
+            <hr>
             <p>All donations raised will go towards the NRDC. Between all the bears, we have enough streaming gear. We've only got one planet.</p>
             <br>
             <p class="lead"> <a class="btn btn-danger btn-lg" target="_blank" href="https://twitch.streamlabs.com/seriousbears" role="button" style="font-size: 1.3em">DONATE</a> </p>
@@ -92,14 +90,14 @@
         <div class="jumbotron ABOUT" id="whodis">
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-12"> <img src="/images/about.png" alt="National Resources Defense Council" style="padding-top:15px;width:60%; max-width:3px">
+                    <div class="col-xs-12"> <img src="./images/about.png" alt="National Resources Defense Council" style="padding-top:15px;width:60%; max-width:3px">
                         <h1 style="font-size: 2.8em; text-shadow: -5px 0 black, 0 5px black, 5px 0 black, 0 -5px black; "><strong>WHO DIS?</strong></h1>
                         <br>
                         <p>Underground worldwide internet radio for bears, geeks and gamers.</p>
                         <p>Our schedule is a bit random at the moment. The best way to keep up is to <a href="https://www.twitch.tv/seriousbears">Follow</a> us!</p>
                         <br>
                         <h1>WTF is up with the chat?</h1>
-                        <br>
+                        <hr>
                         <p>We've got a special integration set up that binds the Twitch chat to an IRC channel. Those chatting in IRC can see Twitch chat and vice versa. Pretty cool! <a href="http://chat.seriousbears.net/">Make sure you say hello!</a></p>
                         <p>Or, if you prefer, come hang out in #seriousbears on QuakeNet and say hello there, it all goes to the same place!</p>
                     </div>
@@ -163,7 +161,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <!-- INIT Custom JS (Loaded last for interaction with Twitch modules declared inline above) -->
-    <script src="seriousbears.js"></script>
+    <script src="./seriousbears.js"></script>
 </body>
 
 </html>
