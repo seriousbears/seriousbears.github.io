@@ -44,12 +44,12 @@ function blowHorn(randomColor) {
 		var thisHorn = bearhorns[whichHorn];
 		thisHorn.play();
 		// WILLIAM BECOMES ENRAGED
-		$("#william").css("-webkit-filter", "brightness(200%)");
-		$("#william").css("filter", "brightness(200%)");
+		//$("#william").css("-webkit-filter", "brightness(200%)");
+		//$("#william").css("filter", "brightness(200%)");
 		/// SLOW YO ROLL
 		throttleHornInputs = true;
 		// BEGIN THE ANIMATION
-		document.getElementById('william').classList.add("animate");
+		//document.getElementById('william').classList.add("animate");
 		// START BLINKING THE BACKGROUND
 		var backgroundBlink = setInterval(function () {
 			var currentBGcolor = $(".centerContainer").css("background-color");
@@ -65,13 +65,13 @@ function blowHorn(randomColor) {
 			// SIGNAL THE STOP
 			throttleHornInputs = false;
 			// STOP THE ANIMATION
-			document.getElementById('william').classList.remove("animate");
+			//document.getElementById('william').classList.remove("animate");
 			// STOP THE BLINKING
 			clearInterval(backgroundBlink);
 			// STOP THE OTHER STUFF
 			$(".centerContainer").css("background-color", "transparent");
-			$("#william").css("-webkit-filter", "brightness(100%)");
-			$("#william").css("filter", "brightness(100%)");
+			//$("#william").css("-webkit-filter", "brightness(100%)");
+			//$("#william").css("filter", "brightness(100%)");
 		}, 800);
 		// INCREASE HYPE
 		$("#hornCount").text(parseInt($("#hornCount").text()) + 1);

@@ -90,8 +90,6 @@ body {
 
 @-webkit-keyframes bearHorn {
 	from {
-		background-image: url("./images/explosion.png");
-		background-repeat: no-repeat;
 		background-size: 100%, 100%;
 		-webkit-transform: rotate(0deg) scale(2) skew(0deg) translate(0px);
 	}
@@ -102,12 +100,6 @@ body {
 
 @media (max-width: 338px) {
 	#countContainer {
-		display: none;
-	}
-}
-
-@media (max-width: 520px) {
-	#william {
 		display: none;
 	}
 }
