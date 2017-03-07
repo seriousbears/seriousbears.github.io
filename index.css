@@ -57,6 +57,9 @@ body {
 }
 
 .DJS {
+	margin-bottom: 0px !important;
+	margin-top: 0px;
+	padding: 10%;
 	background-color: #6441a4;
 	color: white;
 }
@@ -109,6 +112,3 @@ ul {
 	opacity: 0.7;
 	color: deeppink;
 }
-
-$grid-breakpoints: ( sm: 480px, md: 768px, lg: 1024px);
-$container-max-widths: ( sm: 420px, md: 720px, lg: 960px);
