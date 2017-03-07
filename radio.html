@@ -39,6 +39,7 @@
                 , height: 720
                 , channel: "bobross"
                 , muted: true
+                , playsinline: true
             , };
             var twitchPlayer = new Twitch.Player("seriousbearsVideo", options);
             // Here are all the possible Twitch events which would trigger a call to displayModule()
@@ -54,6 +55,14 @@
                 displayModule('oso');
                 console.log("TWITCH PLAYER EVENT: Twitch is ENDED - could have already been that way...");
             });
+            twitchPlayer.addEventListener(Twitch.Player.PLAY, () => {
+                console.log("TWITCH PLAYER EVENT: Twitch player has STARTED PLAYING!.");
+                // haxor
+                setTimeout(function () {
+                    twitchPlayer.setVolume(0.8);
+                    twitchPlayer.setMuted(false);
+                }, 3000);
+            });
         </script>
     </div>
 </body>
@@ -62,8 +71,9 @@
     window.setInterval(function () {
         console.log("polling for a new TrackID and checking Twitch stream status...");
         getTrackID();
-        getTwitchStatus();
     }, 45000);
+    // PREPARE EMBEDED TWITCH FOR IOS
+    $("#seriousbearsVideo > iframe").attr('playsinline', true);
 </script>
 
 </html>
