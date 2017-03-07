@@ -19,6 +19,11 @@ body {
 
 #headertextsm {
 	display: none;
+	padding-left: 14px !important;
+}
+
+#headertext {
+	padding-left: 15px !important;
 }
 
 
