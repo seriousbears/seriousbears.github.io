@@ -55,9 +55,6 @@
             twitchPlayer.addEventListener(Twitch.Player.OFFLINE, () => {
                 displayModule('oso');
                 console.log("TWITCH PLAYER EVENT: Twitch BECAME Offline after previously being Online!");
-                document.getElementById("mp3source").src = "http://listen.seriousbears.net/";
-                document.getElementById("audiostream").load();
-                document.getElementById("audiostream").play();
             });
             twitchPlayer.addEventListener(Twitch.Player.ENDED, () => {
                 displayModule('oso');
@@ -72,7 +69,7 @@
         console.log("polling for updates...");
         getTrackID();
         hehehehe();
-    }, 45000);
+    }, 30000);
     // PREPARE EMBEDED TWITCH FOR IOS
     $("#seriousbearsVideo > iframe").attr('playsinline', true);
     // CLEAR MUTE NOTICE
