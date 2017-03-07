@@ -80,7 +80,7 @@ body {
     font-size: 1em;
 }
 
-#bearstream {
+#audiostream {
     z-index: 1000;
     position: absolute;
     width: 100%;
