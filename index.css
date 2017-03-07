@@ -53,13 +53,16 @@ body {
 	padding-right: 10%;
 	background-color: yellowgreen;
 	color: #6441a4;
-	font-size: 1.0em;
+	font-size: 1.2em;
 }
 
 .DJS {
 	margin-bottom: 0px !important;
 	margin-top: 0px;
-	padding: 10%;
+	padding-top: 5%;
+	padding-bottom: 5%;
+	padding-left: 10%;
+	padding-right: 10%;
 	background-color: #6441a4;
 	color: white;
 }
