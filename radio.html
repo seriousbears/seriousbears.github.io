@@ -25,8 +25,9 @@
         <!-- GIPHY -->
         <iframe id="giphy" src="http://tv.giphy.com/bear" frameborder="0" scrolling="no"></iframe>
         <!-- BEARSTREAM -->
-        <audio id="bearstream" controls>
-            <source src="http://listen.seriousbears.net/" type="audio/mpeg"> </audio>
+        <audio id="audiostream" controls>
+            <source id="mp3source" src="http://listen.seriousbears.net/" type="audio/mpeg"></source>
+        </audio>
     </div>
     <!-- MUTE NOTICE -->
     <div id="twitchOverlay" onclick="clearMuteNotice()">
@@ -54,13 +55,13 @@
             twitchPlayer.addEventListener(Twitch.Player.OFFLINE, () => {
                 displayModule('oso');
                 console.log("TWITCH PLAYER EVENT: Twitch BECAME Offline after previously being Online!");
+                document.getElementById("mp3source").src = "http://listen.seriousbears.net/";
+                document.getElementById("audiostream").load();
+                document.getElementById("audiostream").play();
             });
             twitchPlayer.addEventListener(Twitch.Player.ENDED, () => {
                 displayModule('oso');
                 console.log("TWITCH PLAYER EVENT: Twitch is ENDED - could have already been that way...");
-            });
-            twitchPlayer.addEventListener(Twitch.Player.PLAY, () => {
-                console.log("TWITCH PLAYER EVENT: Twitch player has STARTED PLAYING!.");
             });
         </script>
     </div>
@@ -68,8 +69,9 @@
 <script>
     // POLL THE STREAM API FOR NEW TRACKID EVERY 45 SECONDS..
     window.setInterval(function () {
-        console.log("polling for a new TrackID and checking Twitch stream status...");
+        console.log("polling for updates...");
         getTrackID();
+        hehehehe();
     }, 45000);
     // PREPARE EMBEDED TWITCH FOR IOS
     $("#seriousbearsVideo > iframe").attr('playsinline', true);
