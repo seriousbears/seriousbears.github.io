@@ -43,7 +43,11 @@
             // Here are all the possible Twitch events which would trigger a call to displayModule()
             twitchPlayer.addEventListener(Twitch.Player.ONLINE, () => {
                 displayModule('twitch');
-                console.log("TWITCH PLAYER EVENT: Twitch is Online!");
+                console.log("TWITCH PLAYER EVENT: Twitch reported ONLINE!");
+                // hax0r teh autoplay supression!
+                setTimeout(function () {
+                    twitchPlayer.play();
+                }, 3000);
             });
             twitchPlayer.addEventListener(Twitch.Player.OFFLINE, () => {
                 displayModule('oso');
