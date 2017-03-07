@@ -26,7 +26,7 @@
         <!-- GIPHY -->
         <iframe id="giphy" src="http://tv.giphy.com/bear" frameborder="0" scrolling="no"></iframe>
         <!-- BEARSTREAM -->
-        <audio id="bearstream" preload="none" controls>
+        <audio id="bearstream" controls>
             <source src="http://listen.seriousbears.net/" type="audio/mpeg"> </audio>
     </div>
     <!-- TWITCH VIDEO -->
@@ -57,11 +57,6 @@
             });
             twitchPlayer.addEventListener(Twitch.Player.PLAY, () => {
                 console.log("TWITCH PLAYER EVENT: Twitch player has STARTED PLAYING!.");
-                // haxor
-                setTimeout(function () {
-                    twitchPlayer.setVolume(0.8);
-                    twitchPlayer.setMuted(false);
-                }, 3000);
             });
         </script>
     </div>
