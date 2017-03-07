@@ -7,6 +7,7 @@ body {
     overflow: hidden !important;
 }
 
+
 /* IDS */
 
 #giphy {
@@ -22,6 +23,8 @@ body {
     display: none;
     bottom: 0px;
     margin: 0px;
+    height: 100%;
+    width: 100%;
 }
 
 #william {
@@ -101,4 +104,14 @@ body {
     #countContainer {
         display: none;
     }
+}
+
+#seriousbearsVideo {
+    height: 100%;
+    width: 100%;
+}
+
+#seriousbearsVideo > iframe {
+    height: 100%;
+    width: 100%;
 }

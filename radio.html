@@ -37,7 +37,7 @@
             var options = {
                 width: 1280
                 , height: 720
-                , channel: "seriousbears"
+                , channel: "bobross"
             , };
             var twitchPlayer = new Twitch.Player("seriousbearsVideo", options);
             // Here are all the possible Twitch events which would trigger a call to displayModule()
@@ -46,7 +46,7 @@
                 console.log("TWITCH PLAYER EVENT: Twitch is Online!");
             });
             twitchPlayer.addEventListener(Twitch.Player.OFFLINE, () => {
-                displayModule('handoff');
+                displayModule('oso');
                 console.log("TWITCH PLAYER EVENT: Twitch BECAME Offline after previously being Online!");
             });
             twitchPlayer.addEventListener(Twitch.Player.ENDED, () => {
@@ -63,13 +63,6 @@
         getTrackID();
         getTwitchStatus();
     }, 45000);
-    $(window).resize(function () {
-        // mobile fix
-        if ($('#twitchContainer').is(':visible')) {
-            $('#twitchContainer').find('iframe[src$="http://player.twitch.tv/?channel=seriousbears"]').width($(window).width());
-            $('#twitchContainer').find('iframe[src$="http://player.twitch.tv/?channel=seriousbears"]').height($(window).height());
-        }
-    });
 </script>
 
 </html>
