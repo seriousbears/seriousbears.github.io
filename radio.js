@@ -83,5 +83,6 @@ function displayModule(module) {
         oso = "block";
     }
     document.getElementById("twitchContainer").style.display = twitch;
+    document.getElementById("muteNotice").style.display = twitch;
     document.getElementById("osoContainer").style.display = oso;
 }

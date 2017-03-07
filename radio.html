@@ -21,13 +21,17 @@
         <!-- BEARHORN COUNTER -->
         <div id="countContainer">🐻x<strong><span id="hornCount">0 <i>click me plz :)</i></span></strong></div>
         <!-- CENTER CONTAINER -->
-        <div class="centerContainer" onclick="blowHorn(getRandomColor())">
-            <!-- WILLIAM <img id="william" src="./images/bear2.png" alt="WILLIAM"> --></div>
+        <div class="centerContainer" onclick="blowHorn(getRandomColor())"></div>
         <!-- GIPHY -->
         <iframe id="giphy" src="http://tv.giphy.com/bear" frameborder="0" scrolling="no"></iframe>
         <!-- BEARSTREAM -->
         <audio id="bearstream" controls>
             <source src="http://listen.seriousbears.net/" type="audio/mpeg"> </audio>
+    </div>
+    <!-- MUTE NOTICE -->
+    <div id="twitchOverlay" onclick="clearMuteNotice()">
+        <!-- TRACK ID -->
+        <div id="muteNotice">the Twitch audio player is muted by default. kindly click on the screen and crank that volume up :)</div>
     </div>
     <!-- TWITCH VIDEO -->
     <div id="twitchContainer">
@@ -37,7 +41,7 @@
             var options = {
                 width: 1280
                 , height: 720
-                , channel: "bobross"
+                , channel: "seriousbears"
                 , muted: true
                 , playsinline: true
             , };
@@ -69,6 +73,12 @@
     }, 45000);
     // PREPARE EMBEDED TWITCH FOR IOS
     $("#seriousbearsVideo > iframe").attr('playsinline', true);
+    // CLEAR MUTE NOTICE
+    function clearMuteNotice() {
+        if ($("#twitchOverlay").is(":visible")) {
+            $("#twitchOverlay").hide();
+        }
+    }
 </script>
 
 </html>
