@@ -37,6 +37,9 @@ function getRandomColor() {
 }
 // arm the bearhorn...
 function blowHorn(randomColor) {
+    if ($("#idContainer").is(":visible")) {
+        $("#idContainer").hide();
+    }
     if (!throttleHornInputs) {
         var whichHorn = getRandomInt(0, 4); // array positions 0-3
         var thisHorn = bearhorns[whichHorn];
