@@ -12,73 +12,80 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.2/howler.core.min.js"></script>
 <script src="./radio.js"></script>
 <link rel="stylesheet" href="./radio.css">
+<!-- Favicons & Chrome Manifest -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5A5yMO8Rvg">
+<link rel="icon" type="image/png" href="/favicon-32x32.png?v=5A5yMO8Rvg" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png?v=5A5yMO8Rvg" sizes="16x16">
+<link rel="manifest" href="/manifest.json?v=5A5yMO8Rvg">
+<link rel="mask-icon" href="/safari-pinned-tab.svg?v=5A5yMO8Rvg" color="#7E5BBE">
+<link rel="shortcut icon" href="/favicon.ico?v=5A5yMO8Rvg">
 
 <body onload="getTrackID()">
-    <!-- BEARS AUDIO -->
-    <div id="osoContainer" onclick="blowHorn(getRandomColor())">
-        <!-- TRACK ID -->
-        <div id="idContainer"><b>NP: </b><span id="nowplaying">RETRIEVING TRACK ID...</span></div>
-        <!-- BEARHORN COUNTER -->
-        <div id="countContainer">🐻x<strong><span id="hornCount">0 <i>click me plz :)</i></span></strong></div>
-        <!-- CENTER CONTAINER -->
-        <div class="centerContainer" onclick="blowHorn(getRandomColor())">
-        <h1 id="boh">BOH</h1> </div>
-        </div>
-        <!-- GIPHY -->
-        <iframe id="giphy" src="http://tv.giphy.com/bear" frameborder="0" scrolling="no"></iframe>
-        <!-- BEARSTREAM -->
-        <audio id="audiostream" controls preload="none">
-            <source id="mp3source" src="http://listen.seriousbears.net/" type="audio/mpeg"></source>
-        </audio>
-    </div>
-    <!-- MUTE NOTICE -->
-    <div id="twitchOverlay" onclick="clearMuteNotice()">
-        <!-- TRACK ID -->
-        <div id="muteNotice">the Twitch audio player is muted by default. kindly click on the screen and crank that volume up :)</div>
-    </div>
-    <!-- TWITCH VIDEO -->
-    <div id="twitchContainer">
-        <script src="http://player.twitch.tv/js/embed/v1.js"></script>
-        <div id="seriousbearsVideo"></div>
-        <script type="text/javascript">
-            var options = {
-                width: 1280
-                , height: 720
-                , channel: "seriousbears"
-                , muted: true
-                , playsinline: true
-            , };
-            var twitchPlayer = new Twitch.Player("seriousbearsVideo", options);
-            // Here are all the possible Twitch events which would trigger a call to displayModule()
-            twitchPlayer.addEventListener(Twitch.Player.ONLINE, () => {
-                displayModule('twitch');
-                console.log("TWITCH PLAYER EVENT: Twitch reported ONLINE!");
-            });
-            twitchPlayer.addEventListener(Twitch.Player.OFFLINE, () => {
-                displayModule('oso');
-                console.log("TWITCH PLAYER EVENT: Twitch BECAME Offline after previously being Online!");
-            });
-            twitchPlayer.addEventListener(Twitch.Player.ENDED, () => {
-                displayModule('oso');
-                console.log("TWITCH PLAYER EVENT: Twitch is ENDED - could have already been that way...");
-            });
-        </script>
-    </div>
+	<!-- BEARS AUDIO -->
+	<div id="osoContainer" onclick="blowHorn(getRandomColor())">
+		<!-- TRACK ID -->
+		<div id="idContainer"><b>NP: </b><span id="nowplaying">RETRIEVING TRACK ID...</span></div>
+		<!-- BEARHORN COUNTER -->
+		<div id="countContainer">🐻x<strong><span id="hornCount">0 <i>click me plz :)</i></span></strong></div>
+		<!-- CENTER CONTAINER -->
+		<div class="centerContainer" onclick="blowHorn(getRandomColor())">
+			<h1 id="boh">BOH</h1> </div>
+	</div>
+	<!-- GIPHY -->
+	<iframe id="giphy" src="http://tv.giphy.com/bear" frameborder="0" scrolling="no"></iframe>
+	<!-- BEARSTREAM -->
+	<audio id="audiostream" controls preload="none">
+		<source id="mp3source" src="http://listen.seriousbears.net/" type="audio/mpeg"></source>
+	</audio>
+	</div>
+	<!-- MUTE NOTICE -->
+	<div id="twitchOverlay" onclick="clearMuteNotice()">
+		<!-- TRACK ID -->
+		<div id="muteNotice">the Twitch audio player is muted by default. kindly click on the screen and crank that volume up :)</div>
+	</div>
+	<!-- TWITCH VIDEO -->
+	<div id="twitchContainer">
+		<script src="http://player.twitch.tv/js/embed/v1.js"></script>
+		<div id="seriousbearsVideo"></div>
+		<script type="text/javascript">
+			var options = {
+				width: 1280
+				, height: 720
+				, channel: "seriousbears"
+				, muted: true
+				, playsinline: true
+			, };
+			var twitchPlayer = new Twitch.Player("seriousbearsVideo", options);
+			// Here are all the possible Twitch events which would trigger a call to displayModule()
+			twitchPlayer.addEventListener(Twitch.Player.ONLINE, () => {
+				displayModule('twitch');
+				console.log("TWITCH PLAYER EVENT: Twitch reported ONLINE!");
+			});
+			twitchPlayer.addEventListener(Twitch.Player.OFFLINE, () => {
+				displayModule('oso');
+				console.log("TWITCH PLAYER EVENT: Twitch BECAME Offline after previously being Online!");
+			});
+			twitchPlayer.addEventListener(Twitch.Player.ENDED, () => {
+				displayModule('oso');
+				console.log("TWITCH PLAYER EVENT: Twitch is ENDED - could have already been that way...");
+			});
+		</script>
+	</div>
 </body>
 <script>
-    // POLL THE STREAM API FOR NEW TRACKID EVERY 45 SECONDS..
-    window.setInterval(function () {
-        console.log("polling for updates...");
-        getTrackID();
-    }, 30000);
-    // PREPARE EMBEDED TWITCH FOR IOS
-    $("#seriousbearsVideo > iframe").attr('playsinline', true);
-    // CLEAR MUTE NOTICE
-    function clearMuteNotice() {
-        if ($("#twitchOverlay").is(":visible")) {
-            $("#twitchOverlay").hide();
-        }
-    }
+	// POLL THE STREAM API FOR NEW TRACKID EVERY 45 SECONDS..
+	window.setInterval(function () {
+		console.log("polling for updates...");
+		getTrackID();
+	}, 30000);
+	// PREPARE EMBEDED TWITCH FOR IOS
+	$("#seriousbearsVideo > iframe").attr('playsinline', true);
+	// CLEAR MUTE NOTICE
+	function clearMuteNotice() {
+		if ($("#twitchOverlay").is(":visible")) {
+			$("#twitchOverlay").hide();
+		}
+	}
 </script>
 
 </html>
