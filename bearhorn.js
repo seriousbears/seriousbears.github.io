@@ -4,22 +4,22 @@ var bearhorns = [];
 // load the bearhorns
 var bearhorn1 = new Howl({
     src: ['./sounds/bearhorn1.mp3']
-    , volume: 0.5
+    , volume: 1
     , preload: true
 });
 var bearhorn2 = new Howl({
     src: ['./sounds/bearhorn2.mp3']
-    , volume: 0.5
+    , volume: 1
     , preload: true
 });
 var bearhorn3 = new Howl({
     src: ['./sounds/bearhorn3.mp3']
-    , volume: 0.5
+    , volume: 1
     , preload: true
 });
 var bearhorn4 = new Howl({
     src: ['./sounds/bearhorn4.mp3']
-    , volume: 0.5
+    , volume: 1
     , preload: true
 });
 bearhorns = [bearhorn1, bearhorn1, bearhorn3, bearhorn4];
