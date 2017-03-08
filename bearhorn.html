@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<title>BEARHORN</title>
+<!-- INCLUDES -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=VT323">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.2/howler.core.min.js"></script>
+<script src="./bearhorn.js"></script>
+<link rel="stylesheet" href="./bearhorn.css">
+
+<body onclick="blowHorn(getRandomColor())">
+    <!-- BEARS AUDIO -->
+    <div id="osoContainer" onclick="blowHorn(getRandomColor())">
+        <!-- TRACK ID -->
+        <div id="idContainer"><b>STANDALONE DEDICATED BEARHORN PLEASE USE RESPONSIBLY (OR DON'T...)</b></div>
+        <!-- BEARHORN COUNTER -->
+        <div id="countContainer">🐻x<strong><span id="hornCount">0 <i>click me plz :)</i></span></strong></div>
+        <!-- CENTER CONTAINER -->
+        <div class="centerContainer">
+            <h1 id="boh">BOH</h1> </div>
+        <!-- GIPHY -->
+        <iframe id="giphy" src="http://tv.giphy.com/bear" frameborder="0" scrolling="no"></iframe>
+    </div>
+</body>
+
+</html>

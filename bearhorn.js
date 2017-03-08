@@ -74,24 +74,3 @@ function blowHorn(randomColor) {
         $("#hornCount").text(parseInt($("#hornCount").text()) + 1);
     }
 }
-// get the track ID
-function getTrackID() {
-    $.getJSON('http://listen.seriousbears.net/stats', function (data) {
-        console.log(data.icestats.source[0].title);
-        $("#nowplaying").replaceWith(data.icestats.source[0].title);
-    });
-}
-// this function will control which media module at the top is currently active. 
-function displayModule(module) {
-    var twitch = "none";
-    var oso = "none";
-    if (module == "twitch") {
-        twitch = "block";
-    }
-    if (module == "oso") {
-        oso = "block";
-    }
-    document.getElementById("twitchContainer").style.display = twitch;
-    document.getElementById("muteNotice").style.display = twitch;
-    document.getElementById("osoContainer").style.display = oso;
-}

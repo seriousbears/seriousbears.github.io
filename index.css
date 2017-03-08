@@ -98,7 +98,8 @@ ul {
 /* Style all font awesome icons */
 
 .fa {
-    padding: 30px;
+    padding: 20px;
+    padding-bottom: 31px;
     margin: 0px;
     font-size: 1.9em !important;
     text-align: center !important;
