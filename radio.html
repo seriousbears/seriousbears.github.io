@@ -73,11 +73,18 @@
 	</div>
 </body>
 <script>
-	// POLL THE STREAM API FOR NEW TRACKID EVERY 45 SECONDS..
-	window.setInterval(function () {
-		console.log("polling for updates...");
-		getTrackID();
-	}, 30000);
+	// INIT METADATA WORKER
+	if (typeof (Worker) !== "undefined") {
+		if (typeof (w) == "undefined") {
+			w = new Worker("trackidworker.js");
+		}
+		w.onmessage = function (event) {
+			$("#nowplaying").replaceWith(event.data);
+		};
+	}
+	else {
+		$("#nowplaying").replaceWith("This browser is way too old human, please get with the times.");
+	}
 	// PREPARE EMBEDED TWITCH FOR IOS
 	$("#seriousbearsVideo > iframe").attr('playsinline', true);
 	// CLEAR MUTE NOTICE
