@@ -79,11 +79,11 @@
 			w = new Worker("trackidworker.js");
 		}
 		w.onmessage = function (event) {
-			$("#nowplaying").replaceWith(event.data);
+			$("#nowplaying").text(event.data);
 		};
 	}
 	else {
-		$("#nowplaying").replaceWith("This browser is way too old human, please get with the times.");
+		$("#nowplaying").text("This browser is way too old human, please get with the times.");
 	}
 	// PREPARE EMBEDED TWITCH FOR IOS
 	$("#seriousbearsVideo > iframe").attr('playsinline', true);
