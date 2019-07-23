@@ -15,6 +15,6 @@ function getTrackID() {
 				postMessage(response.icestats.source[0].title);
 			}
 		}
-	}, 15000);
+	}, 5000);
 }
 getTrackID();
